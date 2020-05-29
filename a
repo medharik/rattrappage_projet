@@ -1,0 +1,3 @@
+    @FormUrlEncoded //<form >
+@POST("add.php")//<  form action="add.php" method="post" >
+ Call<Categorie> createCategorie(@Field("nom") String); // <input type="text" name="nom">
