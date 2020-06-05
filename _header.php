@@ -1,11 +1,19 @@
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+if (!isset($_SESSION['panier'])) {
+    $_SESSION['panier'] =  [];
+}
+?>
 <header class="header_area">
     <div class="top_menu">
         <div class="container">
             <div class="row">
                 <div class="col-lg-7">
                     <div class="float-left">
-                        <p>Phone: +01 256 25 235</p>
-                        <p>email: info@eiser.com</p>
+                        <p>Tel: 0524242424</p>
+                        <p>Email: info@gmail.com</p>
                     </div>
                 </div>
                 <div class="col-lg-5">
@@ -42,10 +50,10 @@
                         <div class="col-lg-7 pr-0">
                             <ul class="nav navbar-nav center_nav pull-right">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">Home</a>
+                                    <a class="nav-link" href="index.php">Accueil</a>
                                 </li>
                                 <li class="nav-item submenu dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop</a>
+                                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Boutique</a>
                                     <ul class="dropdown-menu">
                                         <li class="nav-item">
                                             <a class="nav-link" href="category.html">Shop Category</a>
@@ -92,28 +100,23 @@
                         <div class="col-lg-5 pr-0">
                             <ul class="nav navbar-nav navbar-right right_nav pull-right">
                                 <li class="nav-item">
-                                    <a href="#" class="icons">
-                                        <i class="ti-search" aria-hidden="true"></i>
-                                    </a>
+
                                 </li>
 
                                 <li class="nav-item">
-                                    <a href="#" class="icons">
+                                    <a href="cart.php" class="icons">
+                                        <?= count($_SESSION['panier']); ?>
                                         <i class="ti-shopping-cart"></i>
                                     </a>
+                                    <?php if (count($_SESSION['panier']) != 0) { ?>
+                                        <a href="vider_panier.php" class="icons">
+
+                                            <i class="ti-shopping">Vider le panier</i>
+                                        </a>
+                                    <?php } ?>
                                 </li>
 
-                                <li class="nav-item">
-                                    <a href="#" class="icons">
-                                        <i class="ti-user" aria-hidden="true"></i>
-                                    </a>
-                                </li>
 
-                                <li class="nav-item">
-                                    <a href="#" class="icons">
-                                        <i class="ti-heart" aria-hidden="true"></i>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                     </div>

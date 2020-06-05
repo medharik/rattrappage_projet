@@ -10,7 +10,7 @@ include("modele.php");
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link rel="icon" href="img/favicon.png" type="image/png" />
-  <title>Eiser ecommerce</title>
+  <title>E- ecommerce</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="css/bootstrap.css" />
   <link rel="stylesheet" href="vendors/linericon/style.css" />
@@ -76,13 +76,86 @@ include("modele.php");
               <div class="product-img">
                 <img class="img-fluid w-100" src="<?= $l['photo'] ?>" alt="" />
                 <div class="p_icon">
+                  <a href="single-product.php?id=<?= $l['id'] ?>">
+                    <i class="ti-eye"></i>
+                  </a>
+
+                  <a href="ajout_panier.php?id=<?= $l['id'] ?>">
+                    <i class="ti-shopping-cart"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="product-btm">
+                <a href="#" class="d-block">
+                  <h4><?= $l['libelle']; ?></h4>
+                </a>
+                <div class="mt-3">
+                  <span class="mr-4">$<?= $l['prix'] * (1 - $l['reduction'] / 100) ?></span>
+                  <del>$<?= $l['prix']; ?></del>
+                  <p>Reduction de <?= $l['reduction'] ?>%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <?php } ?>
+
+      </div>
+      <h4 class="text-center">En promotion</h4>
+      <div class="row">
+        <?php
+        $last = findBy("place = 'promo' ", 'produit');
+
+        foreach ($last as $l) { ?>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="single-product">
+              <div class="product-img">
+                <img class="img-fluid w-100" src="<?= $l['photo'] ?>" alt="" />
+                <div class="p_icon">
+                  <a href="single-product.php?id=<?= $l['id'] ?>">
+                    <i class="ti-eye"></i>
+                  </a>
+                  <a href="#">
+                    <i class="ti-heart"></i>
+                  </a>
+                  <a href="ajout_panier.php?id=<?= $l['id'] ?>">
+                    <i class="ti-shopping-cart"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="product-btm">
+                <a href="#" class="d-block">
+                  <h4><?= $l['libelle']; ?></h4>
+                </a>
+                <div class="mt-3">
+                  <span class="mr-4">$<?= $l['prix'] * (1 - $l['reduction'] / 100) ?></span>
+                  <del>$<?= $l['prix']; ?></del>
+                  <p>Reduction de <?= $l['reduction'] ?>%</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <?php } ?>
+
+      </div>
+      <div class="row">
+        <?php
+        $last = findBy("place = 'last' ", 'produit');
+
+        foreach ($last as $l) { ?>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="single-product">
+              <div class="product-img">
+                <img class="img-fluid w-100" src="<?= $l['photo'] ?>" alt="" />
+                <div class="p_icon">
                   <a href="#">
                     <i class="ti-eye"></i>
                   </a>
                   <a href="#">
                     <i class="ti-heart"></i>
                   </a>
-                  <a href="#">
+                  <a href="ajout_panier.php?id=<?= $l['id'] ?>">
                     <i class="ti-shopping-cart"></i>
                   </a>
                 </div>
@@ -133,7 +206,7 @@ include("modele.php");
                   <a href="#">
                     <i class="ti-heart"></i>
                   </a>
-                  <a href="#">
+                  <a href="ajout_panier.php?id=<?= $l['id'] ?>">
                     <i class="ti-shopping-cart"></i>
                   </a>
                 </div>
@@ -157,7 +230,7 @@ include("modele.php");
   </section>
 
 
-  <!--================ Offer Area =================-->
+  <!-- ================ Offer Area =================
   <section class="offer_area">
     <div class="container">
       <div class="row justify-content-center">
@@ -172,9 +245,10 @@ include("modele.php");
       </div>
     </div>
   </section>
+-->
   <!--================ End Offer Area =================-->
 
-  <!--================ New Product Area =================-->
+  <!--================ New Product Area =================
   <section class="new_product_area section_gap_top section_gap_bottom_custom">
     <div class="container">
       <div class="row justify-content-center">
@@ -317,6 +391,7 @@ include("modele.php");
       </div>
     </div>
   </section>
+-->
   <!--================ End New Product Area =================-->
 
   <!--================ Inspired Product Area =================-->
@@ -325,237 +400,62 @@ include("modele.php");
       <div class="row justify-content-center">
         <div class="col-lg-12">
           <div class="main_title">
-            <h2><span>Inspired products</span></h2>
-            <p>Bring called seed first of third give itself now ment</p>
+            <h2><span> produits inspires</span></h2>
+
           </div>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-lg-3 col-md-6">
-          <div class="single-product">
-            <div class="product-img">
-              <img class="img-fluid w-100" src="img/product/inspired-product/i1.jpg" alt="" />
-              <div class="p_icon">
-                <a href="#">
-                  <i class="ti-eye"></i>
-                </a>
-                <a href="#">
-                  <i class="ti-heart"></i>
-                </a>
-                <a href="#">
-                  <i class="ti-shopping-cart"></i>
-                </a>
-              </div>
-            </div>
-            <div class="product-btm">
-              <a href="#" class="d-block">
-                <h4>Latest men’s sneaker</h4>
-              </a>
-              <div class="mt-3">
-                <span class="mr-4">$25.00</span>
-                <del>$35.00</del>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-lg-3 col-md-6">
-          <div class="single-product">
-            <div class="product-img">
-              <img class="img-fluid w-100" src="img/product/inspired-product/i2.jpg" alt="" />
-              <div class="p_icon">
-                <a href="#">
-                  <i class="ti-eye"></i>
-                </a>
-                <a href="#">
-                  <i class="ti-heart"></i>
-                </a>
-                <a href="#">
-                  <i class="ti-shopping-cart"></i>
-                </a>
-              </div>
-            </div>
-            <div class="product-btm">
-              <a href="#" class="d-block">
-                <h4>Latest men’s sneaker</h4>
-              </a>
-              <div class="mt-3">
-                <span class="mr-4">$25.00</span>
-                <del>$35.00</del>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-lg-3 col-md-6">
-          <div class="single-product">
-            <div class="product-img">
-              <img class="img-fluid w-100" src="img/product/inspired-product/i3.jpg" alt="" />
-              <div class="p_icon">
-                <a href="#">
-                  <i class="ti-eye"></i>
-                </a>
-                <a href="#">
-                  <i class="ti-heart"></i>
-                </a>
-                <a href="#">
-                  <i class="ti-shopping-cart"></i>
-                </a>
-              </div>
-            </div>
-            <div class="product-btm">
-              <a href="#" class="d-block">
-                <h4>Latest men’s sneaker</h4>
-              </a>
-              <div class="mt-3">
-                <span class="mr-4">$25.00</span>
-                <del>$35.00</del>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-lg-3 col-md-6">
-          <div class="single-product">
-            <div class="product-img">
-              <img class="img-fluid w-100" src="img/product/inspired-product/i4.jpg" alt="" />
-              <div class="p_icon">
-                <a href="#">
-                  <i class="ti-eye"></i>
-                </a>
-                <a href="#">
-                  <i class="ti-heart"></i>
-                </a>
-                <a href="#">
-                  <i class="ti-shopping-cart"></i>
-                </a>
-              </div>
-            </div>
-            <div class="product-btm">
-              <a href="#" class="d-block">
-                <h4>Latest men’s sneaker</h4>
-              </a>
-              <div class="mt-3">
-                <span class="mr-4">$25.00</span>
-                <del>$35.00</del>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-lg-3 col-md-6">
-          <div class="single-product">
-            <div class="product-img">
-              <img class="img-fluid w-100" src="img/product/inspired-product/i5.jpg" alt="" />
-              <div class="p_icon">
-                <a href="#">
-                  <i class="ti-eye"></i>
-                </a>
-                <a href="#">
-                  <i class="ti-heart"></i>
-                </a>
-                <a href="#">
-                  <i class="ti-shopping-cart"></i>
-                </a>
-              </div>
-            </div>
-            <div class="product-btm">
-              <a href="#" class="d-block">
-                <h4>Latest men’s sneaker</h4>
-              </a>
-              <div class="mt-3">
-                <span class="mr-4">$25.00</span>
-                <del>$35.00</del>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="col-lg-3 col-md-6">
-          <div class="single-product">
-            <div class="product-img">
-              <img class="img-fluid w-100" src="img/product/inspired-product/i6.jpg" alt="" />
-              <div class="p_icon">
-                <a href="#">
-                  <i class="ti-eye"></i>
-                </a>
-                <a href="#">
-                  <i class="ti-heart"></i>
-                </a>
-                <a href="#">
-                  <i class="ti-shopping-cart"></i>
-                </a>
-              </div>
-            </div>
-            <div class="product-btm">
-              <a href="#" class="d-block">
-                <h4>Latest men’s sneaker</h4>
-              </a>
-              <div class="mt-3">
-                <span class="mr-4">$25.00</span>
-                <del>$35.00</del>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- debut prooduit inspire -->
+        <?php
+        // $produit=  find(2,"produit");
+        $produits = findBy("place='inspire'", "produit");
+        //  $pa= $produits[0];
+        //  echo $pa['libelle'];
+        foreach ($produits as $p) {
+        ?>
+          <div class="col-lg-3 col-md-6">
+            <div class="single-product">
+              <div class="product-img">
+                <img class="img-fluid w-100" src="<?= $p['photo'] ?>" alt="" />
+                <div class="p_icon">
 
-        <div class="col-lg-3 col-md-6">
-          <div class="single-product">
-            <div class="product-img">
-              <img class="img-fluid w-100" src="img/product/inspired-product/i7.jpg" alt="" />
-              <div class="p_icon">
-                <a href="#">
-                  <i class="ti-eye"></i>
-                </a>
-                <a href="#">
-                  <i class="ti-heart"></i>
-                </a>
-                <a href="#">
-                  <i class="ti-shopping-cart"></i>
-                </a>
+                  <a href="ajout_panier.php?id=<?= $p['id'] ?>">
+                    <i class="ti-shopping-cart"></i>
+                  </a>
+                </div>
               </div>
-            </div>
-            <div class="product-btm">
-              <a href="#" class="d-block">
-                <h4>Latest men’s sneaker</h4>
-              </a>
-              <div class="mt-3">
-                <span class="mr-4">$25.00</span>
-                <del>$35.00</del>
-              </div>
-            </div>
-          </div>
-        </div>
+              <div class="product-btm">
+                <a href="#" class="d-block">
+                  <h4><?= $p['libelle'] ?></h4>
+                </a>
+                <div class="mt-3">
 
-        <div class="col-lg-3 col-md-6">
-          <div class="single-product">
-            <div class="product-img">
-              <img class="img-fluid w-100" src="img/product/inspired-product/i8.jpg" alt="" />
-              <div class="p_icon">
-                <a href="#">
-                  <i class="ti-eye"></i>
-                </a>
-                <a href="#">
-                  <i class="ti-heart"></i>
-                </a>
-                <a href="#">
-                  <i class="ti-shopping-cart"></i>
-                </a>
-              </div>
-            </div>
-            <div class="product-btm">
-              <a href="#" class="d-block">
-                <h4>Latest men’s sneaker</h4>
-              </a>
-              <div class="mt-3">
-                <span class="mr-4">$25.00</span>
-                <del>$35.00</del>
+                  <del><?= $p['prix'] ?>MAD</del>
+                  <?php if ($p['reduction'] != 0) { ?>
+
+                    <span class="mr-4"><?php
+                                        $prix_reduit = $p['prix'] - $p['prix'] * $p['reduction'] / 100;
+                                        echo $prix_reduit;
+
+                                        ?>MAD</span>
+                    <p style="color:green">
+                      Reduction de : <?= $p['reduction'] ?>%
+                    </p>
+                  <?php } ?>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        <?php } ?>
       </div>
+      <!-- fib prooduit inspire -->
     </div>
   </section>
   <!--================ End Inspired Product Area =================-->
